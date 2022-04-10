@@ -9,7 +9,7 @@ import static org.junit.Assert.assertEquals;
  */
 
 
-public class TestCalculatorSpec {
+public class TestCalculator {
 
     Calculator calculator;
 
@@ -18,6 +18,7 @@ public class TestCalculatorSpec {
     }
 
     double delta = 1e-15;
+
     @Test
     public void test$sum() {
         /**
