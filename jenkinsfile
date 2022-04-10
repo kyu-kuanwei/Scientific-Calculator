@@ -20,7 +20,7 @@ pipeline {
 
         stage('Anaylsis') {
             steps {
-                sh './mvnw -Dmaven.test.failure.ignore=true sonar:sonar'
+                sh './mvnw sonar:sonar'
             }
 
             post {
