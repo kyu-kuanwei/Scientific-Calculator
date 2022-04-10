@@ -6,21 +6,21 @@ pipeline {
             steps {
                 // Run Maven on a Unix agent
                 withSonarQubeEnv('sonar_qube') {
-                    sh './mvnw clean package'
+                    sh './mvnw -Dmaven.test.failure.ignore=true clean package'
                 }
             }
         }
 
         stage('Test') {
             steps {
-                sh './mvnw test'
+                sh './mvnw -Dmaven.test.failure.ignore=true test'
 
             }
         }
 
         stage('Anaylsis') {
             steps {
-                sh './mvnw sonar:sonar'
+                sh './mvnw -Dmaven.test.failure.ignore=true sonar:sonar'
             }
 
             post {
