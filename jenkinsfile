@@ -2,19 +2,25 @@ pipeline {
     agent any
 
     stages {
-        stage('Build & Anaylsis') {
+        stage('Build') {
             steps {
                 // Run Maven on a Unix agent
                 withSonarQubeEnv('sonar_qube') {
-                    sh './mvnw clean package sonar:sonar'
+                    sh './mvnw clean package'
                 }
             }
         }
 
         stage('Test') {
             steps {
-                sh './mvnw --batch-mode -Dmaven.test.failure.ignore=true test'
+                sh './mvnw test'
 
+            }
+        }
+
+        stage('Anaylsis') {
+            steps {
+                sh './mvnw sonar:sonar'
             }
 
             post {

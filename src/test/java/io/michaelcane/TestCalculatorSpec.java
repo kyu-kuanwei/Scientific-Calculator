@@ -9,7 +9,7 @@ import static org.junit.Assert.assertEquals;
  */
 
 
-public class CalculatorSpec {
+public class TestCalculatorSpec {
 
     Calculator calculator;
 
@@ -77,7 +77,7 @@ public class CalculatorSpec {
         /**
          * This method should square a value (double) provided by the user.
          */
-        double expectedValue = 6;
+        double expectedValue = 8;
         double actualValue = calculator.cube(2);
         assertEquals("This should evaluate to 8", expectedValue, actualValue, delta);
     }
@@ -224,33 +224,4 @@ public class CalculatorSpec {
         double actualValue = calculator.inverseLogarithm(9);
         assertEquals("This should evaluate to 1000000000", expectedValue, actualValue, delta);
     }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 }
